@@ -10,7 +10,7 @@ const Branch branches[NUM_BRANCHES] =
     //  floor colour, rock colour
     //  travel shortcut, runes, ambient noise level
 
-    { BRANCH_DUNGEON, NUM_BRANCHES, 0, 0, 15, 0,
+    { BRANCH_DUNGEON, NUM_BRANCHES, 0, 0, 13, 0,
       BFLAG_NONE,
       NUM_FEATURES, DNGN_EXIT_DUNGEON, NUM_FEATURES,
       "Dungeon", "the Dungeon", "D",
@@ -52,7 +52,7 @@ const Branch branches[NUM_BRANCHES] =
       'K', {}, 0 },
 
 
-    { BRANCH_LAIR, BRANCH_DUNGEON, -1, -1, 6, 10,
+    { BRANCH_LAIR, BRANCH_DUNGEON, 13, 13, 1, 13,
       BFLAG_NONE,
       DNGN_ENTER_LAIR, DNGN_EXIT_LAIR, NUM_FEATURES,
       "Lair", "the Lair of Beasts", "Lair",
@@ -61,7 +61,7 @@ const Branch branches[NUM_BRANCHES] =
       'L', {}, 0 },
 #endif
 
-    { BRANCH_SWAMP, BRANCH_DUNGEON, 13, 14, 3, 15,
+    { BRANCH_SWAMP, BRANCH_LAIR, 1, 1, 3, 15,
       BFLAG_DANGEROUS_END | BFLAG_SPOTTY,
       DNGN_ENTER_SWAMP, DNGN_EXIT_SWAMP, NUM_FEATURES,
       "Swamp", "the Swamp", "Swamp",
@@ -69,7 +69,7 @@ const Branch branches[NUM_BRANCHES] =
       BROWN, BROWN,
       'S', { RUNE_SWAMP }, 0 },
 
-    { BRANCH_SHOALS, BRANCH_DUNGEON, 13, 14, 3, 15,
+    { BRANCH_SHOALS, BRANCH_LAIR, 1, 1, 3, 15,
       BFLAG_DANGEROUS_END,
       DNGN_ENTER_SHOALS, DNGN_EXIT_SHOALS, NUM_FEATURES,
       "Shoals", "the Shoals", "Shoals",
@@ -77,7 +77,7 @@ const Branch branches[NUM_BRANCHES] =
       BROWN, BROWN,
       'A', { RUNE_SHOALS }, 0 },
 
-    { BRANCH_SNAKE, BRANCH_DUNGEON, 13, 14, 3, 15,
+    { BRANCH_SNAKE, BRANCH_LAIR, 1, 1, 3, 15,
       BFLAG_DANGEROUS_END,
       DNGN_ENTER_SNAKE, DNGN_EXIT_SNAKE, NUM_FEATURES,
       "Snake Pit", "the Snake Pit", "Snake",
@@ -85,7 +85,7 @@ const Branch branches[NUM_BRANCHES] =
       LIGHTGREEN, YELLOW,
       'P', { RUNE_SNAKE }, 0 },
 
-    { BRANCH_SPIDER, BRANCH_DUNGEON, 13, 14, 3, 15,
+    { BRANCH_SPIDER, BRANCH_LAIR, 1, 1, 3, 15,
       BFLAG_DANGEROUS_END,
       DNGN_ENTER_SPIDER, DNGN_EXIT_SPIDER, NUM_FEATURES,
       "Spider Nest", "the Spider Nest", "Spider",
@@ -101,7 +101,7 @@ const Branch branches[NUM_BRANCHES] =
       GREEN, BROWN,
       'M', { RUNE_SLIME }, 0 },
 
-    { BRANCH_VAULTS, BRANCH_DUNGEON, 15, 15, 4, 19,
+    { BRANCH_VAULTS, BRANCH_DUNGEON, 13, 13, 4, 19,
       BFLAG_DANGEROUS_END,
       DNGN_ENTER_VAULTS, DNGN_EXIT_VAULTS, NUM_FEATURES,
       "Vaults", "the Vaults", "Vaults",
@@ -294,7 +294,7 @@ const Branch branches[NUM_BRANCHES] =
       LIGHTGREY, BROWN, // set per-map
       '8', {}, 0 },
 
-    { BRANCH_DEPTHS, BRANCH_DUNGEON, 15, 15, 5, 22,
+    { BRANCH_DEPTHS, BRANCH_LAIR, 1, 1, 5, 22,
       BFLAG_NONE,
       DNGN_ENTER_DEPTHS, DNGN_EXIT_DEPTHS, NUM_FEATURES,
       "Depths", "the Depths", "Depths",

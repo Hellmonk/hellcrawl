@@ -1150,7 +1150,7 @@ static void _generate_armour_item(item_def& item, bool allow_uniques,
             item.plus += random2(3);
         }
 
-        if (!no_ego && x_chance_in_y(31 + item_level, 350))
+        if (!no_ego && x_chance_in_y(41 + item_level, 350))
         {
             // ...an ego item, in fact.
             set_item_ego_type(item, OBJ_ARMOUR,

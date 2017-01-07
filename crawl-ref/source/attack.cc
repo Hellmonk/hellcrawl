@@ -1643,7 +1643,7 @@ bool attack::apply_damage_brand(const char *what)
             break;
         else if (one_chance_in(3))
         {
-			special_damage = 8 + random2(13);
+			special_damage = 5 + random2(13);
 			std::string d = std::to_string(special_damage);
             special_damage_message =
                 defender->is_player()?

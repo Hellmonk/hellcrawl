@@ -132,9 +132,9 @@ enum card_type
     CARD_XOM,                 // 's attention turns to you
 #if TAG_MAJOR_VERSION == 34
     CARD_FEAST,               // engorged
-#endif
     CARD_FAMINE,              // starving
     CARD_CURSE,               // curse your items
+#endif
     CARD_SWINE,               // *oink*
 
     CARD_ILLUSION,            // a copy of the player

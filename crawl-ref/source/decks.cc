@@ -2250,7 +2250,6 @@ void card_effect(card_type which_card, deck_rarity_type rarity,
     case CARD_FEAST:
     case CARD_CURSE:
     case CARD_DOWSING:
-    case CARD_FAMINE:
         mpr("This type of card no longer exists!");
         break;
 #endif

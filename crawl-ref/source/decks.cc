@@ -2205,13 +2205,6 @@ void card_effect(card_type which_card, deck_rarity_type rarity,
         _damaging_card(which_card, power, rarity, flags & CFLAG_DEALT);
         break;
 
-    case CARD_FAMINE:
-        if (you_foodless())
-            mpr("You feel rather smug.");
-        else
-            set_hunger(min(you.hunger, HUNGER_STARVING / 2), true);
-        break;
-
     case CARD_SWINE:
         if (transform(5 + power/10 + random2(power/10), TRAN_PIG, true))
             you.transform_uncancellable = true;

@@ -59,7 +59,7 @@ static const map<job_type, job_def> job_data =
     { SP_KOBOLD, SP_SPRIGGAN, SP_BASE_DRACONIAN,
       SP_DEMONSPAWN, },
     { "short sword", "leather armour", "wand of flame charges:15",
-      "wand of enslavement charges:15" },
+      "wand of enslavement charges:15", "scroll of recharging" },
     WCHOICE_NONE,
     { { SK_EVOCATIONS, 3 }, { SK_DODGING, 2 }, { SK_FIGHTING, 1 },
       { SK_WEAPON, 1 }, { SK_STEALTH, 1 }, },

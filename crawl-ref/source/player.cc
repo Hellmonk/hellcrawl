@@ -4075,11 +4075,11 @@ int get_real_hp(bool trans, bool rotted)
                           || player_under_penance(GOD_HEPLIAKLQANA);
 
     // Mutations that increase HP by a percentage
-    hitp *= 100 + (player_mutation_level(MUT_ROBUST) * 10)
+    hitp *= 100 + (player_mutation_level(MUT_ROBUST) * 7)
                 + (you.attribute[ATTR_DIVINE_VIGOUR] * 5)
                 + (player_mutation_level(MUT_RUGGED_BROWN_SCALES) ?
                    player_mutation_level(MUT_RUGGED_BROWN_SCALES) * 2 + 1 : 0)
-                - (player_mutation_level(MUT_FRAIL) * 10)
+                - (player_mutation_level(MUT_FRAIL) * 7)
                 - (hep_frail ? 10 : 0);
 
     hitp /= 100;

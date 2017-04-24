@@ -1423,25 +1423,30 @@ vector<skill_type> get_crosstrain_skills(skill_type sk)
 {
     switch (sk)
     {
-    case SK_SHORT_BLADES:
-        return { SK_LONG_BLADES };
-    case SK_LONG_BLADES:
-        return { SK_SHORT_BLADES };
-    case SK_AXES:
-    case SK_STAVES:
-        return { SK_POLEARMS, SK_MACES_FLAILS };
-    case SK_MACES_FLAILS:
-    case SK_POLEARMS:
-        return { SK_AXES, SK_STAVES };
-    case SK_SLINGS:
-        return { SK_THROWING };
-    case SK_THROWING:
-        return { SK_SLINGS };
-    default:
-        return {};
+        case SK_SHORT_BLADES:
+            return {SK_LONG_BLADES, SK_POLEARMS};
+        case SK_LONG_BLADES:
+            return {SK_SHORT_BLADES, SK_AXES};
+        case SK_AXES:
+            return {SK_LONG_BLADES, SK_MACES_FLAILS};
+        case SK_STAVES:
+            return {SK_POLEARMS, SK_MACES_FLAILS};
+        case SK_MACES_FLAILS:
+            return {SK_AXES, SK_STAVES};
+        case SK_POLEARMS:
+            return {SK_AXES, SK_LONG_BLADES};
+        case SK_SLINGS:
+            return {SK_THROWING};
+        case SK_THROWING:
+            return {SK_SLINGS};
+        case SK_BOWS:
+            return {SK_CROSSBOWS};
+        case SK_CROSSBOWS:
+            return {SK_BOWS};
+      default:
+            return {};
     }
 }
-
 /**
  * Is the provided skill one of the elemental spellschools?
  *

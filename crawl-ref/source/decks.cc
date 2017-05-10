@@ -120,7 +120,6 @@ deck_archetype deck_of_punishment =
 {
     { CARD_WRAITH,     {5, 5, 5} },
     { CARD_WRATH,      {5, 5, 5} },
-    { CARD_FAMINE,     {5, 5, 5} },
     { CARD_SWINE,      {5, 5, 5} },
     { CARD_TORMENT,    {5, 5, 5} },
 };
@@ -317,6 +316,7 @@ const char* card_name(card_type card)
     case CARD_SUMMON_SKELETON: return "the Bones";
     case CARD_WATER:           return "Water";
     case CARD_SWAP:            return "Swap";
+    case CARD_FAMINE:	       return "Famine";
 #endif
 
     case NUM_CARDS:            return "a buggy card";

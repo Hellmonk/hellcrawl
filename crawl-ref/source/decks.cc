@@ -120,7 +120,6 @@ deck_archetype deck_of_punishment =
 {
     { CARD_WRAITH,     {5, 5, 5} },
     { CARD_WRATH,      {5, 5, 5} },
-    { CARD_FAMINE,     {5, 5, 5} },
     { CARD_SWINE,      {5, 5, 5} },
     { CARD_TORMENT,    {5, 5, 5} },
 };
@@ -317,6 +316,7 @@ const char* card_name(card_type card)
     case CARD_SUMMON_SKELETON: return "the Bones";
     case CARD_WATER:           return "Water";
     case CARD_SWAP:            return "Swap";
+    case CARD_FAMINE:	       return "Famine";
 #endif
 
     case NUM_CARDS:            return "a buggy card";
@@ -2203,13 +2203,6 @@ void card_effect(card_type which_card, deck_rarity_type rarity,
     case CARD_PAIN:
     case CARD_ORB:
         _damaging_card(which_card, power, rarity, flags & CFLAG_DEALT);
-        break;
-
-    case CARD_FAMINE:
-        if (you_foodless())
-            mpr("You feel rather smug.");
-        else
-            set_hunger(min(you.hunger, HUNGER_STARVING / 2), true);
         break;
 
     case CARD_SWINE:

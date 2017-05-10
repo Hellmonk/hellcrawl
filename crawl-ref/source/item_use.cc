@@ -2099,9 +2099,11 @@ void drink(item_def* potion)
 }
 
 // XXX: there's probably a nicer way of doing this.
+// new joiner to the good-god-trio, Hep, doesn't care how you choose to kill
 bool god_hates_brand(const int brand)
 {
     if (is_good_god(you.religion)
+	&& (!you_worship(GOD_HEPLIAKLQANA))
         && (brand == SPWPN_DRAINING
             || brand == SPWPN_VAMPIRISM
             || brand == SPWPN_CHAOS

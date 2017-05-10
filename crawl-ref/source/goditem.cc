@@ -146,6 +146,7 @@ bool is_corpse_violating_item(const item_def& item)
  *
  * @param item      The item in question.
  * @return          Whether the Good Gods will always frown on this item's use.
+ * new: Hep does hate demonic weapons, but doesn't care about mere brands.
  */
 bool is_evil_item(const item_def& item)
 {
@@ -162,6 +163,8 @@ bool is_evil_item(const item_def& item)
     case OBJ_WEAPONS:
         if (is_demonic(item))
             return true;
+        if (you_worship(GOD_HEPLIAKLQANA))
+            return false;
         {
         const int item_brand = get_weapon_brand(item);
         return item_brand == SPWPN_DRAINING

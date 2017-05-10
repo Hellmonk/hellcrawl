@@ -539,7 +539,7 @@ static string _describe_god_wrath_causes(god_type which_god)
 
     switch (which_god)
     {
-        case GOD_SHINING_ONE:
+        case GOD_HEPLIAKLQANA:
         case GOD_ELYVILON:
             return uppercase_first(god_name(which_god)) +
                    " forgives followers who leave " + god_name(which_god)+"'s"
@@ -549,7 +549,7 @@ static string _describe_god_wrath_causes(god_type which_god)
                                       bind(god_name, placeholders::_1, false)) +
                    " are evil gods.)";
 
-        case GOD_ZIN:
+        case GOD_SHINING_ONE:
             return uppercase_first(god_name(which_god)) +
                    " does not punish followers who leave "+god_name(which_god)+
                    "'s service; however, those who take up the worship of evil"

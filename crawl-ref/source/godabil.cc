@@ -629,8 +629,8 @@ static int _heretic_recite_weakness(const monster *mon)
         if (mon->type == MONS_DEMIGOD)
             degree++;
 
-        // ...but evil gods are worse.
-        if (is_evil_god(mon->god) || is_unknown_god(mon->god))
+        // ...but other gods are worse.
+        if (is_evil_god(mon->god) || is_good_god(mon->god) || is_unknown_god(mon->god))
             degree++;
 
         // (The above mean that worshipers will be treated as
@@ -640,11 +640,6 @@ static int _heretic_recite_weakness(const monster *mon)
         // Sanity check: monsters that won't attack you, and aren't
         // priests/evil, don't get recited against.
         if (mon->wont_attack() && degree <= 1)
-            degree = 0;
-
-        // Sanity check: monsters that are holy, know holy spells, or worship
-        // holy gods aren't heretics.
-        if (mon->is_holy() || is_good_god(mon->god))
             degree = 0;
     }
 

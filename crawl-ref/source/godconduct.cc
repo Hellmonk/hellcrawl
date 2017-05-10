@@ -216,19 +216,19 @@ static const dislike_response RUDE_CANNIBALISM_RESPONSE = {
     5, 3, nullptr, " expects more respect for your departed relatives."
 };
 
-/// Zin and Ely's responses to desecrating holy remains.
+/// Hep and Ely's responses to desecrating holy remains.
 static const dislike_response GOOD_DESECRATE_HOLY_RESPONSE = {
     "you desecrate holy remains", true,
     1, 1, nullptr, " expects more respect for holy creatures!"
 };
 
-/// Zin and Ely's responses to evil actions. TODO: parameterize & merge w/TSO
+/// Hep and Ely's responses to evil actions. TODO: parameterize & merge w/TSO
 static const dislike_response GOOD_EVIL_RESPONSE = {
     "you use evil magic or items", true,
     1, 1, " forgives your inadvertent evil act, just this once."
 };
 
-/// Zin and Ely's responses to the player attacking holy creatures.
+/// Hep and Ely's responses to the player attacking holy creatures.
 static const dislike_response GOOD_ATTACK_HOLY_RESPONSE = {
     "you attack non-hostile holy beings", true,
     1, 1, nullptr, nullptr, _attacking_holy_matters
@@ -284,10 +284,6 @@ static peeve_map divine_peeves[] =
     // GOD_ZIN,
     {
         { DID_CANNIBALISM, RUDE_CANNIBALISM_RESPONSE },
-        { DID_ATTACK_HOLY, GOOD_ATTACK_HOLY_RESPONSE },
-        { DID_KILL_HOLY, GOOD_KILL_HOLY_RESPONSE },
-        { DID_DESECRATE_HOLY_REMAINS, GOOD_DESECRATE_HOLY_RESPONSE },
-        { DID_EVIL, GOOD_EVIL_RESPONSE },
         { DID_ATTACK_FRIEND, _on_attack_friend("you attack allies") },
         { DID_ATTACK_NEUTRAL, {
             "you attack neutral beings", false,
@@ -461,7 +457,13 @@ static peeve_map divine_peeves[] =
     // GOD_USKAYAW,
     peeve_map(),
     // GOD_HEPLIAKLQANA,
-    peeve_map(),
+    {
+        { DID_CANNIBALISM, RUDE_CANNIBALISM_RESPONSE },
+        { DID_ATTACK_HOLY, GOOD_ATTACK_HOLY_RESPONSE },
+        { DID_KILL_HOLY, GOOD_KILL_HOLY_RESPONSE },
+        { DID_DESECRATE_HOLY_REMAINS, GOOD_DESECRATE_HOLY_RESPONSE },
+        { DID_EVIL, GOOD_EVIL_RESPONSE },
+    },
 };
 
 string get_god_dislikes(god_type which_god)
@@ -689,6 +691,10 @@ static like_map divine_likes[] =
     {
         { DID_KILL_UNCLEAN, _on_kill("you kill unclean or chaotic beings", MH_DEMONIC, true) },
         { DID_KILL_CHAOTIC, _on_kill(nullptr, MH_DEMONIC, true) },
+        { DID_KILL_PRIEST, {
+            "you kill the priests of other religions", true,
+            -6, 18, 0, " appreciates your killing of a heretic priest."
+        } },
     },
     // GOD_SHINING_ONE,
     {

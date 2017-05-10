@@ -773,8 +773,9 @@ enum book_type
     BOOK_ANNIHILATIONS,
     BOOK_GRAND_GRIMOIRE,
     BOOK_NECRONOMICON,
+    BOOK_WAR_WIZARDRY,
 
-    MAX_FIXED_BOOK = BOOK_NECRONOMICON,
+    MAX_FIXED_BOOK = BOOK_WAR_WIZARDRY,
 
     BOOK_RANDART_LEVEL,
     BOOK_RANDART_THEME,
@@ -2380,6 +2381,7 @@ enum job_type
 #if TAG_MAJOR_VERSION == 34
     JOB_JESTER,
 #endif
+    JOB_BATTLEMAGE,
     NUM_JOBS,                          // always after the last job
 
     JOB_UNKNOWN = 100,

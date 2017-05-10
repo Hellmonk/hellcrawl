@@ -1094,7 +1094,7 @@ static job_group jobs_order[] =
         "Warrior-mage",
         coord_def(35, 0), 21,
         { JOB_SKALD, JOB_TRANSMUTER, JOB_ARCANE_MARKSMAN,
-          JOB_ENCHANTER }
+          JOB_ENCHANTER, JOB_BATTLEMAGE }
     },
     {
         "Mage",

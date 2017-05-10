@@ -371,6 +371,15 @@ static const vector<spell_type> spellbook_templates[] =
     SPELL_NECROMUTATION,
 },
 
+{   // Book of War Wizardry
+    SPELL_CONFUSING_TOUCH,
+    SPELL_BEASTLY_APPENDAGE,
+    SPELL_SANDBLAST,
+    SPELL_SONG_OF_SLAYING,
+    SPELL_DAZZLING_SPRAY,
+    SPELL_OZOCUBUS_ARMOUR,
+},
+
 };
 
 COMPILE_CHECK(ARRAYSZ(spellbook_templates) == 1 + MAX_FIXED_BOOK);

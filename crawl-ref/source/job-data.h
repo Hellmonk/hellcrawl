@@ -77,6 +77,17 @@ static const map<job_type, job_def> job_data =
       { SK_THROWING, 2 }, { SK_WEAPON, 2 }, },
 } },
 
+{ JOB_BATTLEMAGE, {
+    "Ba", "Battlemage",
+    4, 4, 4,
+    { SP_TENGU, SP_KOBOLD, SP_BASE_DRACONIAN, SP_NAGA, SP_TROLL,
+      SP_MERFOLK, SP_DEMONSPAWN, },
+    { "leather armour plus:1", "book of War Wizardry" },
+    WCHOICE_NONE,
+    { { SK_FIGHTING, 1}, { SK_UNARMED_COMBAT, 3 }, { SK_DODGING, 2 },
+      { SK_SPELLCASTING, 2 }, { SK_TRANSMUTATIONS, 1 }, { SK_HEXES, 1 }, },
+} },
+
 { JOB_BERSERKER, {
     "Be", "Berserker",
     9, -1, 4,

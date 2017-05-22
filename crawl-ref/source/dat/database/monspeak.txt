@@ -6327,13 +6327,13 @@ _dasharez0ne_
 
 VISUAL:@The_monster@ looks tired but strong.
 
-@The_monster@ says @to_foe@, "Your damn right I'm POLY. Poundin Off and Lonely Yall."
+@The_monster@ says @to_foe@, "You're damn right I'm POLY. Poundin Off and Lonely Y'all."
 
 @The_monster@ says @to_foe@, "Skateboarding is not a crime. Otherwise its pretty cool."
 
 @The_monster@ says @to_foe@, "Some self-loathing is healthy."
 
-@The_monster@ says @to_foe@, "Your going to be a skeleton much longer than whatever you are now."
+@The_monster@ says @to_foe@, "You're going to be a skeleton much longer than whatever you are now."
 
 @The_monster@ says @to_foe@, "Made it through another week. Big shout out to drugs and alcohol."
 

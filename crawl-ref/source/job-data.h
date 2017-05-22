@@ -82,9 +82,9 @@ static const map<job_type, job_def> job_data =
     9, -1, 4,
     { SP_HILL_ORC, SP_OGRE, SP_MERFOLK, SP_MINOTAUR, SP_GARGOYLE,
       SP_DEMONSPAWN, },
-    { "animal skin" },
-    WCHOICE_PLAIN,
-    { { SK_FIGHTING, 3 }, { SK_DODGING, 2 }, { SK_WEAPON, 3 }, },
+    { "animal skin", "tomahawk" },
+    WCHOICE_NONE,
+    { { SK_FIGHTING, 3 }, { SK_DODGING, 2 }, { SK_THROWING, 3 }, },
 } },
 
 { JOB_CHAOS_KNIGHT, {

@@ -1827,6 +1827,15 @@ static bool _choose_difficulty(newgame_def& ng, newgame_def& ng_choice,
 			text += "n - Normal";
 			freeform->set_active_item(tmp);
 			break;
+		case 2:
+		    tmp->set_fg_colour(MAGENTA);
+		    tmp->add_hotkey('r');
+		    if (coinflip())
+			tmp->set_id(DIFFICULTY_CASUAL);
+		    else
+			tmp->set_id(DIFFICULTY_NORMAL);
+		    text += "r - Random";
+		    break;
 		}
 
 	//	tmp->set_fg_colour(LIGHTGRAY);

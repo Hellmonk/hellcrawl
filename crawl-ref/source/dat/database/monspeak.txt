@@ -901,6 +901,8 @@ VISUAL:@The_monster@ wildly waves @possessive@ antennae.
 default confused 'b'
 
 VISUAL:@The_monster@ flutters around in erratic circles.
+
+VISUAL:@The_monster@ imitates an unpopular meme.
 %%%%
 default 'cap-G'
 
@@ -5148,6 +5150,8 @@ Suddenly @the_monster@'s spirit rises from @possessive@ lifeless body.
 Moaning pathetically, @the_monster@'s spirit plunges into the ground.
 
 You hear a faint echoing roar filled with hate and sorrow!
+
+@the_monster@'s spirit collapses into a pile of memes.
 %%%%
 Natasha permanently killed
 
@@ -6972,6 +6976,8 @@ orc_priest_preaching
 @The_monster@ shouts, "Surrender to Beogh and we'll let you live!"
 
 @The_monster@ threatens, "By the altar or by the axe, you will meet Beogh!"
+
+@The_monster@ emits several  d a n k  m e m e s
 %%%%
 #################################
 # Cherubs.

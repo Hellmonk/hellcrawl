@@ -1292,7 +1292,7 @@ int player_hunger_rate(bool temp)
  */
 int player_total_spell_levels()
 {
-    return you.experience_level - 1 + you.skill(SK_SPELLCASTING, 2, true);
+    return you.experience_level + 1 + you.skill(SK_SPELLCASTING, 2, true);
 }
 
 /**

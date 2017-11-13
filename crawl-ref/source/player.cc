@@ -2263,11 +2263,14 @@ static int _player_evasion(ev_ignore_type evit)
     const int scale = 100;
     const int size_base_ev = (10 + size_factor) * scale;
 
+    const int form_ev_bonus = get_form()->get_ev_bonus();
+
     const int vertigo_penalty = you.duration[DUR_VERTIGO] ? 5 * scale : 0;
 
     const int prestepdown_evasion =
         size_base_ev
         + _player_armour_adjusted_dodge_bonus(scale)
+        + form_ev_bonus
         - _player_adjusted_evasion_penalty(scale)
         - you.adjusted_shield_penalty(scale)
         - vertigo_penalty;

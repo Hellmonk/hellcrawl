@@ -139,6 +139,7 @@ public:
     virtual bool can_offhand_punch() const { return can_wield(); }
     virtual string get_uc_attack_name(string default_name) const;
     virtual int get_ac_bonus() const;
+    virtual int get_ev_bonus() const;
 
     bool enables_flight() const;
     bool forbids_flight() const;

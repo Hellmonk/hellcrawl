@@ -67,7 +67,7 @@ static const form_entry formdata[] =
     TRAN_SPIDER, MONS_SPIDER, "Spider", "spider-form", "spider",
     "a venomous arachnid creature.",
     EQF_PHYSICAL, MR_VUL_POISON,
-    FormDuration(10, PS_DOUBLE, 60), 0, 5, SIZE_TINY, 10,
+    FormDuration(10, PS_DOUBLE, 60), 0, 5, SIZE_CHARACTER, 10,
     2, 0, 0, true, 10, 10, 5,
     SPWPN_VENOM, LIGHTGREEN, "Fangs", ANIMAL_VERBS,
     FC_DEFAULT, FC_FORBID, FC_FORBID, true, false,
@@ -78,7 +78,7 @@ static const form_entry formdata[] =
     "",
     EQF_HANDS, MR_NO_FLAGS,
     FormDuration(10, PS_SINGLE, 100), 0, 0, SIZE_CHARACTER, 10,
-    0, 0, 0, true, 20, 12, 22,
+    0, 0, 0, true, 20, 12, -1,
     SPWPN_NORMAL, RED, "", { "hit", "slash", "slice", "shred" },
     FC_DEFAULT, FC_DEFAULT, FC_DEFAULT, true, true,
     "", 0, "scythe-like blade", "", "", ""
@@ -109,7 +109,7 @@ static const form_entry formdata[] =
     "a fearsome dragon!",
     EQF_PHYSICAL, MR_RES_POISON,
     DEFAULT_DURATION, 10, 0, SIZE_GIANT, 15,
-    16, 0, 0, true, 0, 10, 32,
+    16, 0, 0, true, 0, 10, -1,
     SPWPN_NORMAL, GREEN, "Teeth and claws", { "hit", "claw", "bite", "maul" },
     FC_ENABLE, FC_FORBID, FC_ENABLE, true, false,
     "roar", 6, "foreclaw", "", "bow your head before", "flesh"

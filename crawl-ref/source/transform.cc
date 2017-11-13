@@ -258,6 +258,20 @@ int Form::get_ac_bonus() const
 }
 
 /**
+ * What EV bonus does the player get while in this form?
+ *
+ * Unlike AC bonus, there's no flat/XL component, just a power-scaled one.
+ *
+ * @return  The EV bonus currently granted by the form, multiplied by 100 to
+ *          allow for pseudo-decimal flexibility (& to match
+ *          player::evasion())
+ */
+int Form::get_ev_bonus() const
+{
+    return 0;
+}
+
+/**
  * (freeze)
  */
 static string _brand_suffix(int brand)
@@ -478,6 +492,13 @@ private:
     DISALLOW_COPY_AND_ASSIGN(FormSpider);
 public:
     static const FormSpider &instance() { static FormSpider inst; return inst; }
+
+    int get_ev_bonus() const override
+    {
+        const int pow = calc_spell_power(SPELL_SPIDER_FORM, true);
+        // div_rand_round would be more accurate but cause UI flicker
+        return pow / 5;
+    }
 };
 
 class FormBlade : public Form
@@ -540,6 +561,12 @@ public:
     string get_uc_attack_name(string default_name) const override
     {
         return "Blade " + blade_parts(true);
+    }
+
+    int get_base_unarmed_damage() const override
+    {
+        const int pow = calc_spell_power(SPELL_BLADE_HANDS, true);
+        return div_rand_round(pow, 5) + 7;
     }
 };
 
@@ -705,6 +732,13 @@ public:
     }
 
     bool can_offhand_punch() const override { return true; }
+
+    int get_base_unarmed_damage() const override
+    {
+        const int pow = calc_spell_power(SPELL_DRAGON_FORM, true);
+        return div_rand_round(pow, 3);
+    }
+
 };
 
 class FormLich : public Form

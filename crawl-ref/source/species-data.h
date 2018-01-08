@@ -474,7 +474,7 @@ static const map<species_type, species_def> species_data =
     "Og",
     "Ogre", "Ogreish", nullptr,
     SPF_NONE,
-    0, 3, 0, 4,
+    0, 4, 0, 4,
     MONS_OGRE,
     HT_LAND, US_ALIVE, SIZE_LARGE,
     12, 7, 5, // 24
@@ -582,7 +582,7 @@ static const map<species_type, species_def> species_data =
     "Tr",
     "Troll", "Trollish", nullptr,
     SPF_NONE,
-    -1, 3, -1, 3,
+    -1, 2, -1, 3,
     MONS_TROLL,
     HT_LAND, US_ALIVE, SIZE_LARGE,
     15, 4, 5, // 24

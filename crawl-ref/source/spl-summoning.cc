@@ -118,12 +118,22 @@ spret_type cast_summon_small_mammal(int pow, god_type god, bool fail)
 
     monster_type mon = MONS_PROGRAM_BUG;
 
-    if (x_chance_in_y(10, pow + 1))
-        mon = coinflip() ? MONS_BAT : MONS_RAT;
-    else
-        mon = MONS_QUOKKA;
+    // 1 - 10 mammals, about +1 every 20 power
+    const int adj_pow = pow - biased_random2(pow, 3);
+    dprf("Adjusted power is %d", adj_pow);
+    const int number = min(10, max(1, div_rand_round(adj_pow, 10)));
 
-    if (!create_monster(_pal_data(mon, 3, god, SPELL_SUMMON_SMALL_MAMMAL)))
+    bool success = false;
+    for (int i=0; i<number; i++) {
+        if (coinflip() || x_chance_in_y(10, pow + 1))
+            mon = coinflip() ? MONS_BAT : MONS_RAT;
+        else
+            mon = MONS_QUOKKA;
+        if (create_monster(_pal_data(mon, 3, god, SPELL_SUMMON_SMALL_MAMMAL)))
+            success = true;
+    }
+
+    if (!success)
         canned_msg(MSG_NOTHING_HAPPENS);
 
     return SPRET_SUCCESS;
@@ -1141,13 +1151,13 @@ static bool _summon_common_demon(int pow, god_type god, int spell, bool quiet)
 
 static bool _summon_greater_demon(int pow, god_type god, int spell, bool quiet)
 {
-    monster_type mon = summon_any_demon(RANDOM_DEMON_GREATER);
+    monster_type mon = summon_any_demon(RANDOM_DEMON_GREATEST);
 
-    const bool charmed = (random2(pow) > 5);
-    const bool friendly = (charmed && mons_demon_tier(mon) == 2);
+    // 0-90% chance of being friendly (as opposed to temporarily charmed)
+    const bool friendly = x_chance_in_y(pow, 220);
 
     return _summon_demon_wrapper(pow, god, spell, mon,
-                                 4, friendly, charmed, quiet);
+                                 4, friendly, true, quiet);
 }
 
 bool summon_demon_type(monster_type mon, int pow, god_type god,

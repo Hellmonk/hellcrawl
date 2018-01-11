@@ -9,7 +9,6 @@ static const vector<spell_type> spellbook_templates[] =
     SPELL_SLOW,
     SPELL_SUBLIMATION_OF_BLOOD,
     SPELL_CONJURE_FLAME,
-    SPELL_CALL_CANINE_FAMILIAR,
 },
 
 #if TAG_MAJOR_VERSION == 34
@@ -44,8 +43,6 @@ static const vector<spell_type> spellbook_templates[] =
     SPELL_AURA_OF_ABJURATION,
     SPELL_SUMMON_DEMON,
     SPELL_SUMMON_FOREST,
-    SPELL_SUMMON_MANA_VIPER,
-    SPELL_SHADOW_CREATURES,
 },
 
 {   // Book of Fire
@@ -130,7 +127,6 @@ static const vector<spell_type> spellbook_templates[] =
     SPELL_OLGREBS_TOXIC_RADIANCE,
     SPELL_SUMMON_FOREST,
     SPELL_HYDRA_FORM,
-    SPELL_SUMMON_HYDRA,
 },
 
 #if TAG_MAJOR_VERSION > 34
@@ -161,9 +157,7 @@ static const vector<spell_type> spellbook_templates[] =
 {   // Book of Callings
     SPELL_SUMMON_SMALL_MAMMAL,
     SPELL_CALL_IMP,
-    SPELL_CALL_CANINE_FAMILIAR,
     SPELL_SUMMON_GUARDIAN_GOLEM,
-    SPELL_SUMMON_LIGHTNING_SPIRE,
     SPELL_SUMMON_ICE_BEAST,
 },
 
@@ -185,7 +179,6 @@ static const vector<spell_type> spellbook_templates[] =
 },
 
 {   // Book of the Sky
-    SPELL_SUMMON_LIGHTNING_SPIRE,
     SPELL_AIRSTRIKE,
     SPELL_SILENCE,
     SPELL_DEFLECT_MISSILES,
@@ -275,7 +268,6 @@ static const vector<spell_type> spellbook_templates[] =
 },
 
 {   // Book of Party Tricks
-    SPELL_SUMMON_BUTTERFLIES,
     SPELL_APPORTATION,
     SPELL_BECKONING,
     SPELL_TUKIMAS_DANCE,
@@ -322,7 +314,6 @@ static const vector<spell_type> spellbook_templates[] =
     SPELL_HIBERNATION,
     SPELL_SILENCE,
     SPELL_DARKNESS,
-    SPELL_SHADOW_CREATURES,
 },
 
 {   // Book of Alchemy
@@ -334,11 +325,7 @@ static const vector<spell_type> spellbook_templates[] =
 },
 
 {   // Book of Beasts
-    SPELL_SUMMON_BUTTERFLIES,
-    SPELL_CALL_CANINE_FAMILIAR,
     SPELL_SUMMON_ICE_BEAST,
-    SPELL_SUMMON_MANA_VIPER,
-    SPELL_SUMMON_HYDRA,
 },
 
 {   // Book of Annihilations
@@ -349,7 +336,6 @@ static const vector<spell_type> spellbook_templates[] =
 },
 
 {   // Grand Grimoire
-    SPELL_MONSTROUS_MENAGERIE,
     SPELL_SUMMON_GREATER_DEMON,
     SPELL_MALIGN_GATEWAY,
     SPELL_SUMMON_HORRIBLE_THINGS,

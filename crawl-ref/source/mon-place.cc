@@ -3368,6 +3368,9 @@ monster_type summon_any_demon(monster_type dct, bool use_local_demons)
         else
             return random_demon_by_tier(1);
 
+    case RANDOM_DEMON_GREATEST:
+        return random_demon_by_tier(1);
+
     default:
         return dct;
     }

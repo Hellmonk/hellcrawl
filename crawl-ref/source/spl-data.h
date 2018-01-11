@@ -385,7 +385,7 @@ static const struct spell_desc spelldata[] =
     SPTYP_SUMMONING,
     SPFLAG_NONE,
     1,
-    25,
+    200,
     -1, -1,
     1, 0,
     TILEG_SUMMON_SMALL_MAMMAL,
@@ -947,7 +947,7 @@ static const struct spell_desc spelldata[] =
     SPELL_SUMMON_GREATER_DEMON, "Summon Greater Demon",
     SPTYP_SUMMONING,
     SPFLAG_UNHOLY | SPFLAG_SELFENCH | SPFLAG_MONS_ABJURE,
-    7,
+    8,
     200,
     -1, -1,
     6, 0,
@@ -1285,7 +1285,7 @@ static const struct spell_desc spelldata[] =
 {
     SPELL_SHADOW_CREATURES, "Shadow Creatures",
     SPTYP_SUMMONING,
-    SPFLAG_MONS_ABJURE,
+    SPFLAG_MONS_ABJURE | SPFLAG_MONSTER,
     6,
     0,
     -1, -1,
@@ -1363,7 +1363,7 @@ static const struct spell_desc spelldata[] =
 {
     SPELL_CALL_CANINE_FAMILIAR, "Call Canine Familiar",
     SPTYP_SUMMONING,
-    SPFLAG_NONE,
+    SPFLAG_MONSTER,
     3,
     100,
     -1, -1,
@@ -1431,12 +1431,12 @@ static const struct spell_desc spelldata[] =
 {
     SPELL_SUMMON_BUTTERFLIES, "Summon Butterflies",
     SPTYP_SUMMONING,
-    SPFLAG_NONE,
+    SPFLAG_MONSTER,
     1,
     100,
     -1, -1,
     1, 0,
-    TILEG_SUMMON_BUTTERFLIES,
+    TILEG_ERROR,
 },
 
 #if TAG_MAJOR_VERSION == 34
@@ -1635,7 +1635,7 @@ static const struct spell_desc spelldata[] =
 {
     SPELL_MONSTROUS_MENAGERIE, "Monstrous Menagerie",
     SPTYP_SUMMONING,
-    SPFLAG_MONS_ABJURE,
+    SPFLAG_MONS_ABJURE | SPFLAG_MONSTER,
     7,
     200,
     -1, -1,
@@ -2446,7 +2446,7 @@ static const struct spell_desc spelldata[] =
 {
     SPELL_SUMMON_HYDRA, "Summon Hydra",
     SPTYP_SUMMONING,
-    SPFLAG_MONS_ABJURE,
+    SPFLAG_MONS_ABJURE | SPFLAG_MONSTER,
     7,
     200,
     -1, -1,
@@ -3164,7 +3164,7 @@ static const struct spell_desc spelldata[] =
 {
     SPELL_SUMMON_LIGHTNING_SPIRE, "Summon Lightning Spire",
     SPTYP_SUMMONING | SPTYP_AIR,
-    SPFLAG_TARGET | SPFLAG_NOT_SELF | SPFLAG_NEUTRAL,
+    SPFLAG_TARGET | SPFLAG_NOT_SELF | SPFLAG_NEUTRAL | SPFLAG_MONSTER,
     4,
     100,
     2, 2,
@@ -3300,7 +3300,7 @@ static const struct spell_desc spelldata[] =
 {
     SPELL_SUMMON_MANA_VIPER, "Summon Mana Viper",
     SPTYP_SUMMONING | SPTYP_HEXES,
-    SPFLAG_MONS_ABJURE,
+    SPFLAG_MONS_ABJURE | SPFLAG_MONSTER,
     5,
     100,
     -1, -1,

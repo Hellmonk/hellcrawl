@@ -1092,6 +1092,39 @@ monster* place_monster(mgen_data mg, bool force_pos, bool dont_place)
             continue;
         }
 
+        // Plain orcs are a pushover past Dungeon
+        // Especially relevant in orc
+        if (band_template.cls == MONS_ORC
+            && place.branch != BRANCH_DUNGEON)
+        {
+            dprf("Upgrading orc.");
+            switch (random2(10))
+            {
+            case 0:
+            case 1:
+                // 20% no change
+                break;
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+                // 50% Orc Warrior
+                band_template.cls = MONS_ORC_WARRIOR;
+            case 7:
+                // 10% Orc Knight
+                band_template.cls = MONS_ORC_KNIGHT;
+            case 8:
+                // 10% Orc Priest
+                band_template.cls = MONS_ORC_PRIEST;
+            case 9:
+                // 10% Orc High Priest
+                band_template.cls = MONS_ORC_HIGH_PRIEST;
+            default:
+                die("derrr I can't count");
+            }
+        }
+
         if (monster *member = _place_monster_aux(band_template, mon, place))
         {
             member->flags |= MF_BAND_MEMBER;

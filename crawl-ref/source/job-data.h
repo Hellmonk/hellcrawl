@@ -193,7 +193,7 @@ static const map<job_type, job_def> job_data =
     "TK", "Torpor Knight",
     4, 4, 4,
     { SP_MINOTAUR, SP_FORMICID, SP_HILL_ORC, SP_DEMONSPAWN, },
-    { "plate armour ego:ponderousness" },
+    { "plate armour" },
     WCHOICE_PLAIN,
     { { SK_FIGHTING, 2 }, { SK_ARMOUR, 1 }, { SK_DODGING, 1 },
       { SK_WEAPON, 3 }, { SK_INVOCATIONS, 2 }, },

@@ -1919,7 +1919,7 @@ int player_prot_life(bool calc_unid, bool temp, bool items)
 // want to go past 6 (see below). -- bwr
 int player_movement_speed()
 {
-    int mv = 10;
+    int mv = 12;
 
     // transformations
     if (you.form == TRAN_BAT)
@@ -1928,14 +1928,16 @@ int player_movement_speed()
         mv = 7;
     else if (you.form == TRAN_PORCUPINE)
         mv = 8;
-    else if (you.fishtail || you.form == TRAN_HYDRA && you.in_water())
+    else if (you.form == TRAN_HYDRA && you.in_water())
         mv = 6;
+    else if (you.fishtail)
+        mv -= 4;
 
     // moving on liquefied ground takes longer
     if (you.liquefied_ground())
         mv += 3;
 
-    // armour
+    // running ego
     if (you.run())
         mv -= 1;
 

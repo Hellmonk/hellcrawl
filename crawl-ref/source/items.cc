@@ -4576,7 +4576,7 @@ bool get_item_by_name(item_def *item, const char* specs,
             else
             {
                 mpr("Sorry, no books on that skill today.");
-                item->skill = SK_FIGHTING; // Was probably that anyway.
+                item->skill = SK_UNARMED_COMBAT;
             }
             item->skill_points = random_range(2000, 3000);
         }

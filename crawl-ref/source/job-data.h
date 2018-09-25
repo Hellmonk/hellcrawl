@@ -38,7 +38,7 @@ static const map<job_type, job_def> job_data =
     { SP_FORMICID, SP_DEEP_ELF, SP_KOBOLD, SP_SPRIGGAN, SP_TROLL, },
     { "robe", "book of Arcane Marksmanship" },
     WCHOICE_RANGED,
-    { { SK_FIGHTING, 1 }, { SK_DODGING, 2 },
+    { { SK_DODGING, 2 },
       { SK_HEXES, 4 }, { SK_WEAPON, 2 }, },
 } },
 
@@ -50,7 +50,7 @@ static const map<job_type, job_def> job_data =
     { "dagger", "leather armour", "wand of flame charges:15",
       "wand of enslavement charges:15", "wand of iceblast charges:1" },
     WCHOICE_NONE,
-    { { SK_EVOCATIONS, 3 }, { SK_DODGING, 2 }, { SK_FIGHTING, 1 },
+    { { SK_EVOCATIONS, 3 }, { SK_DODGING, 2 },
       { SK_WEAPON, 1 }, { SK_STEALTH, 1 }, },
 } },
 
@@ -61,7 +61,7 @@ static const map<job_type, job_def> job_data =
       SP_DEMONSPAWN, },
     { "animal skin" },
     WCHOICE_PLAIN,
-    { { SK_FIGHTING, 3 }, { SK_DODGING, 2 }, { SK_WEAPON, 3 }, },
+    { { SK_DODGING, 2 }, { SK_WEAPON, 3 }, },
 } },
 
 { JOB_CHAOS_KNIGHT, {
@@ -71,7 +71,7 @@ static const map<job_type, job_def> job_data =
       SP_BASE_DRACONIAN, SP_DEMONSPAWN, },
     { "leather armour plus:2" },
     WCHOICE_PLAIN,
-    { { SK_FIGHTING, 3 }, { SK_ARMOUR, 1 }, { SK_DODGING, 1 },
+    { { SK_ARMOUR, 1 }, { SK_DODGING, 1 },
       { SK_WEAPON, 3 } },
 } },
 
@@ -102,7 +102,7 @@ static const map<job_type, job_def> job_data =
     { SP_MOUNTAIN_DWARF, SP_TROLL, SP_MINOTAUR, SP_GARGOYLE, SP_GNOLL },
     { "scale mail", "shield", "potion of augmentation" },
     WCHOICE_GOOD,
-    { { SK_FIGHTING, 3 }, { SK_SHIELDS, 3 }, { SK_ARMOUR, 3 },
+    { { SK_SHIELDS, 3 }, { SK_ARMOUR, 3 },
       { SK_WEAPON, 2 } },
 } },
 
@@ -122,7 +122,7 @@ static const map<job_type, job_def> job_data =
     { SP_MOUNTAIN_DWARF, SP_MERFOLK, SP_MINOTAUR, SP_GARGOYLE, SP_GNOLL},
     { "leather armour", "helmet", "poisoned dart q:12", "curare dart q:3"},
     WCHOICE_GOOD,
-    { { SK_FIGHTING, 2 }, { SK_THROWING, 2 }, { SK_DODGING, 3 },
+    { { SK_THROWING, 2 }, { SK_DODGING, 3 },
       { SK_WEAPON, 3}, },
 } },
 
@@ -132,7 +132,7 @@ static const map<job_type, job_def> job_data =
     { SP_MOUNTAIN_DWARF, SP_KOBOLD, SP_TROLL, SP_GNOLL},
     { "dagger", "leather armour" },
     WCHOICE_RANGED,
-    { { SK_FIGHTING, 2 }, { SK_DODGING, 2 }, { SK_STEALTH, 1 },
+    { { SK_DODGING, 2 }, { SK_STEALTH, 1 },
       { SK_WEAPON, 4 }, },
 } },
 
@@ -153,7 +153,7 @@ static const map<job_type, job_def> job_data =
     { SP_MOUNTAIN_DWARF, SP_TROLL, SP_MERFOLK, SP_GARGOYLE, SP_DEMONSPAWN, },
     { "robe" },
     WCHOICE_PLAIN,
-    { { SK_FIGHTING, 3 }, { SK_WEAPON, 3 }, { SK_DODGING, 3 },
+    { { SK_WEAPON, 3 }, { SK_DODGING, 3 },
       { SK_STEALTH, 2 }, {SK_INVOCATIONS, 3} },
 } },
 
@@ -174,7 +174,7 @@ static const map<job_type, job_def> job_data =
     { SP_MERFOLK, SP_BASE_DRACONIAN, SP_VAMPIRE, SP_GNOLL},
     { "leather armour", "book of Battle" },
     WCHOICE_PLAIN,
-    { { SK_FIGHTING, 2 }, { SK_ARMOUR, 1 }, { SK_DODGING, 1 },
+    { { SK_ARMOUR, 1 }, { SK_DODGING, 1 },
       { SK_CHARMS, 4 }, { SK_WEAPON, 2 }, },
 } },
 
@@ -195,7 +195,7 @@ static const map<job_type, job_def> job_data =
     { SP_MINOTAUR, SP_FORMICID, SP_MOUNTAIN_DWARF, SP_DEMONSPAWN, },
     { "plate armour ego:ponderousness" },
     WCHOICE_PLAIN,
-    { { SK_FIGHTING, 2 }, { SK_ARMOUR, 1 }, { SK_DODGING, 1 },
+    { { SK_ARMOUR, 1 }, { SK_DODGING, 1 },
       { SK_WEAPON, 3 }, { SK_INVOCATIONS, 2 }, },
 } },
 
@@ -206,7 +206,7 @@ static const map<job_type, job_def> job_data =
       SP_TROLL, },
     { "robe", "book of Changes" },
     WCHOICE_NONE,
-    { { SK_FIGHTING, 1 }, { SK_UNARMED_COMBAT, 3 }, { SK_DODGING, 2 },
+    { { SK_UNARMED_COMBAT, 3 }, { SK_DODGING, 2 },
       { SK_TRANSMUTATIONS, 3 }, },
 } },
 

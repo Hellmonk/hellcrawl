@@ -308,19 +308,11 @@ static void _change_skill_level(skill_type exsk, int n)
 
     if (need_reset)
         reset_training();
-
-    // calc_hp() has to be called here because it currently doesn't work
-    // right if you.skills[] hasn't been updated yet.
-    if (exsk == SK_FIGHTING)
-        recalc_and_scale_hp();
 }
 
 // Called whenever a skill is trained.
 void redraw_skill(skill_type exsk, skill_type old_best_skill)
 {
-    if (exsk == SK_FIGHTING)
-        recalc_and_scale_hp();
-
     if (exsk == SK_DODGING || exsk == SK_ARMOUR)
         you.redraw_evasion = true;
 
@@ -1830,17 +1822,6 @@ int transfer_skill_points(skill_type fsk, skill_type tsk, int skp_max,
 
         total_skp_lost += skp_lost;
         change_skill_points(fsk, -skp_lost, false);
-
-        // If reducing fighting would reduce your maxHP to 0 or below,
-        // we cancel the last step and end the transfer.
-        if (fsk == SK_FIGHTING && get_real_hp(false, true) <= 0)
-        {
-            change_skill_points(fsk, skp_lost, false);
-            total_skp_lost -= skp_lost;
-            if (!simu)
-                you.transfer_skill_points = total_skp_lost;
-            break;
-        }
 
         total_skp_gained += skp_gained;
 

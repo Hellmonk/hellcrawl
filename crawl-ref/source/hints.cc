@@ -695,7 +695,6 @@ void hints_gained_new_skill(skill_type skill)
     switch (skill)
     {
     // Special cases first.
-    case SK_FIGHTING:
     case SK_ARMOUR:
     case SK_STEALTH:
     case SK_UNARMED_COMBAT:

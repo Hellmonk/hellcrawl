@@ -1330,10 +1330,7 @@ static string _describe_weapon(const item_def &item, bool verbose)
         description += " falls into the";
 
         const skill_type skill = item_attack_skill(item);
-
-        description +=
-            make_stringf(" '%s' category. ",
-                         skill == SK_FIGHTING ? "buggy" : skill_name(skill));
+        description += make_stringf(" '%s' category. ", skill_name(skill));
 
         description += _handedness_string(item);
 

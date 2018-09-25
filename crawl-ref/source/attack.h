@@ -189,7 +189,6 @@ protected:
 
     virtual int  player_stat_modify_damage(int damage);
     virtual int  player_apply_weapon_skill(int damage);
-    virtual int  player_apply_fighting_skill(int damage, bool aux);
     virtual int  player_apply_misc_modifiers(int damage);
     virtual int  player_apply_slaying_bonuses(int damage, bool aux);
     virtual int  player_apply_final_multipliers(int damage);

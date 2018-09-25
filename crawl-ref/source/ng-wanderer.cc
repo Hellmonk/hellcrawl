@@ -115,7 +115,7 @@ static skill_type _wanderer_role_skill_select(stat_type selected_role,
     {
     case STAT_DEX:
         // Duplicates are intentional.
-        selected_skill = random_choose(SK_FIGHTING, SK_FIGHTING,
+        selected_skill = random_choose(SK_DODGING,
                                        SK_DODGING,
                                        SK_STEALTH,
                                        sk_1, sk_1);
@@ -124,7 +124,7 @@ static skill_type _wanderer_role_skill_select(stat_type selected_role,
     case STAT_STR:
         do
         {
-            selected_skill = random_choose(SK_FIGHTING, sk_1, SK_ARMOUR);
+            selected_skill = random_choose(sk_1, SK_ARMOUR);
         }
         while (is_useless_skill(selected_skill));
         break;
@@ -435,23 +435,6 @@ static void _wanderer_good_equipment(skill_type & skill)
 
     int total_weapons = ARRAYSZ(combined_weapon_skills);
 
-    // Normalise the input type.
-    if (skill == SK_FIGHTING)
-    {
-        int max_sklev = 0;
-        skill_type max_skill = SK_NONE;
-
-        for (int i = 0; i < total_weapons; ++i)
-        {
-            if (you.skills[combined_weapon_skills[i]] >= max_sklev)
-            {
-                max_skill = combined_weapon_skills[i];
-                max_sklev = you.skills[max_skill];
-            }
-        }
-        skill = max_skill;
-    }
-
     switch (skill)
     {
     case SK_MACES_FLAILS:
@@ -468,7 +451,7 @@ static void _wanderer_good_equipment(skill_type & skill)
         break;
 
     case SK_DODGING:
-        // +2 leather armour 
+        // +2 leather armour
         newgame_make_item(OBJ_ARMOUR, ARM_LEATHER_ARMOUR, 1, 2);
         break;
 
@@ -523,25 +506,6 @@ static void _wanderer_decent_equipment(skill_type & skill,
           SK_SHORT_BLADES, SK_UNARMED_COMBAT, SK_POLEARMS };
 
     int total_weapons = ARRAYSZ(combined_weapon_skills);
-
-    // If fighting comes up, give something from the highest weapon
-    // skill.
-    if (skill == SK_FIGHTING)
-    {
-        int max_sklev = 0;
-        skill_type max_skill = SK_NONE;
-
-        for (int i = 0; i < total_weapons; ++i)
-        {
-            if (you.skills[combined_weapon_skills[i]] >= max_sklev)
-            {
-                max_skill = combined_weapon_skills[i];
-                max_sklev = you.skills[max_skill];
-            }
-        }
-
-        skill = max_skill;
-    }
 
     // Don't give a gift from the same skill twice; just default to
     // a decent consumable

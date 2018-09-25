@@ -111,7 +111,7 @@ void ghost_demon::reset()
     species          = SP_UNKNOWN;
     job              = JOB_UNKNOWN;
     religion         = GOD_NO_GOD;
-    best_skill       = SK_FIGHTING;
+    best_skill       = SK_UNARMED_COMBAT;
     best_skill_level = 0;
     xl               = 0;
     max_hp           = 0;
@@ -333,7 +333,7 @@ void ghost_demon::init_player_ghost(bool actual_ghost)
             damage = property(weapon, PWPN_DAMAGE);
 
             // Bows skill doesn't make bow-bashing better.
-            skill_type sk = is_range_weapon(weapon) ? SK_FIGHTING
+            skill_type sk = is_range_weapon(weapon) ? SK_UNARMED_COMBAT
                                                     : item_attack_skill(weapon);
             damage *= 25 + you.skills[sk];
             damage /= 25;
@@ -374,9 +374,6 @@ void ghost_demon::init_player_ghost(bool actual_ghost)
 
         damage += you.skills[SK_UNARMED_COMBAT];
     }
-
-    damage *= 30 + you.skills[SK_FIGHTING];
-    damage /= 30;
 
     damage += you.strength() / 4;
 

@@ -359,7 +359,7 @@ monster_info::monster_info(monster_type p_type, monster_type p_base_type)
         i_ghost.species = SP_HUMAN;
         i_ghost.job = JOB_WANDERER;
         i_ghost.religion = GOD_NO_GOD;
-        i_ghost.best_skill = SK_FIGHTING;
+        i_ghost.best_skill = SK_UNARMED_COMBAT;
         i_ghost.best_skill_rank = 2;
         i_ghost.xl_rank = 3;
         hd = ghost_rank_to_level(i_ghost.xl_rank);
@@ -1354,7 +1354,7 @@ void monster_info::to_string(int count, string& desc, int& desc_colour,
         }
         break;
     }
-	
+
     if (colour_type < _NUM_MLC)
         desc_colour = _monster_list_colours[colour_type];
 

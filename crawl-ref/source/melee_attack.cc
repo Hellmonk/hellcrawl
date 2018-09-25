@@ -79,7 +79,7 @@ melee_attack::melee_attack(actor *attk, actor *defn,
     damage_brand = attacker->damage_brand(attack_number);
     init_attack(SK_UNARMED_COMBAT, attack_number);
     if (weapon && !using_weapon())
-        wpn_skill = SK_FIGHTING;
+        wpn_skill = SK_UNARMED_COMBAT;
 
     attack_position = attacker->pos();
 }
@@ -360,24 +360,24 @@ bool melee_attack::handle_phase_hit()
 
         return false;
     }
-	
+
 	if (attacker->is_player() && you.attribute[ATTR_SPECTRAL_WEAPON]
         && !(you.duration[DUR_SPECTRAL_WEAPON_COOLDOWN] > 0) && !mons_is_firewood(*defender->as_monster()))
     {
-        summon_spectral_weapon(&you, calc_spell_power(SPELL_SPECTRAL_WEAPON,true),you.religion);         
+        summon_spectral_weapon(&you, calc_spell_power(SPELL_SPECTRAL_WEAPON,true),you.religion);
 	}
-	
+
     if (attacker->is_player() && you.duration[DUR_MIASMATA])
     {
 		//scale the chance to do anything with necro skill
         if(x_chance_in_y(10 + you.skill_rdiv(SK_NECROMANCY, 2, 3), 50))
         {
-            mprf("You engulf %s in miasma!", 
+            mprf("You engulf %s in miasma!",
                 you.can_see(*defender)? defender->name(DESC_THE).c_str() : "something");
             place_cloud(CLOUD_MIASMA, defender->pos(), 5 + random2(6), &you);
 		}
     }
-	
+
     if (attacker->is_player() && you.attribute[ATTR_INFESTATION])
     {
         if(!defender->is_summoned() && !(defender->as_monster()->flags & MF_HARD_RESET))
@@ -785,7 +785,7 @@ bool melee_attack::attack()
             ev_margin = AUTOMATIC_HIT;
             shield_blocked = false;
         }
-		
+
         // Serpent's Lash does not miss
         if (wu_jian_has_momentum(wu_jian_attack))
             ev_margin = AUTOMATIC_HIT;
@@ -1169,7 +1169,7 @@ void melee_attack::player_aux_setup(unarmed_attack_type atk)
 
 	if (wu_jian_attack != WU_JIAN_ATTACK_NONE)
         wu_jian_attack = WU_JIAN_ATTACK_TRIGGERED_AUX;
-	
+
     if (atk == UNAT_BITE
         && _vamp_wants_blood_from_monster(defender->as_monster()))
     {
@@ -1303,8 +1303,6 @@ bool melee_attack::player_aux_apply(unarmed_attack_type atk)
 
     aux_damage  = random2(aux_damage);
 
-    aux_damage  = player_apply_fighting_skill(aux_damage, true);
-
     aux_damage  = player_apply_misc_modifiers(aux_damage);
 
     aux_damage  = player_apply_slaying_bonuses(aux_damage, true);
@@ -1404,7 +1402,7 @@ void melee_attack::player_announce_aux_hit()
 
 string melee_attack::player_why_missed()
 {
-    //roses are red, violets are blue, 
+    //roses are red, violets are blue,
     //the code that was here before was misleading, and it was useless too
     return "You" + evasion_margin_adverb() + " miss ";
 }
@@ -1817,7 +1815,7 @@ void melee_attack::handle_noise(const coord_def & pos)
         return;
 
     int loudness = damage_done / 4;
-	
+
     if(attacker->is_player() && you.attribute[ATTR_SONG_OF_SLAYING])
     {
 		loudness += random2(5) + 1;
@@ -2016,7 +2014,7 @@ void melee_attack::apply_staff_damage()
 	}
 
 	std::string d = std::to_string(0);
-	
+
     switch (weapon->sub_type)
     {
     case STAFF_AIR:
@@ -2363,7 +2361,7 @@ bool melee_attack::mons_attack_effects()
     if (attacker != defender && defender->alive())
     {
         mons_apply_attack_flavour();
-		
+
         if(mons_class_flag(attacker->type, M_INVIS)
                          &&!defender->can_see(*attacker))
             attacker->as_monster()->del_ench(ENCH_INVIS, true);
@@ -2656,7 +2654,7 @@ void melee_attack::mons_apply_attack_flavour()
             drain_defender();
         break;
 
-	case AF_CONTAM:	
+	case AF_CONTAM:
 		if(defender->is_player())
 		{
 			contaminate_player(1000 + random2(1000), false);
@@ -2668,7 +2666,7 @@ void melee_attack::mons_apply_attack_flavour()
                 "mutagenic touch");
         }
 		break;
-		
+
     case AF_PARALYSE:
     {
         // Only wasps at the moment, so Zin vitalisation
@@ -3147,7 +3145,7 @@ void melee_attack::do_minotaur_retaliation()
 		if(!defender->airborne())
             return;
 	}
-	
+
 	if (!defender->is_player())
     {
         // monsters have no STR or DEX
@@ -3193,7 +3191,6 @@ void melee_attack::do_minotaur_retaliation()
         int dmg = 5 + mut * 3;
         dmg = player_stat_modify_damage(dmg);
         dmg = random2(dmg);
-        dmg = player_apply_fighting_skill(dmg, true);
         dmg = player_apply_misc_modifiers(dmg);
         dmg = player_apply_slaying_bonuses(dmg, true);
         dmg = player_apply_final_multipliers(dmg);
@@ -3366,7 +3363,7 @@ bool melee_attack::_extra_aux_attack(unarmed_attack_type atk)
     {
         return false;
     }
-	
+
     if (wu_jian_attack != WU_JIAN_ATTACK_NONE
     && !x_chance_in_y(1, wu_jian_number_of_targets))
     {
@@ -3428,8 +3425,7 @@ int melee_attack::calc_your_to_hit_unarmed(int uattack)
     int your_to_hit;
 
     your_to_hit = 1300
-                + you.dex() * 75
-                + you.skill(SK_FIGHTING, 30);
+                + you.dex() * 100;
     your_to_hit /= 100;
 
     your_to_hit -= 5 * you.inaccuracy();

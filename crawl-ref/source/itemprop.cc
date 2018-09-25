@@ -1412,7 +1412,7 @@ static map<armour_type, monster_type> hide_to_mons = _make_hide_monster_map();
  *
  * @param arm   The type of armour in question.
  * @return      The corresponding monster type; e.g. MONS_FIRE_DRAGON for
- *              ARM_FIRE_DRAGON_ARMOUR, 
+ *              ARM_FIRE_DRAGON_ARMOUR,
  *				MONS_TROLL for ARM_TROLL_LEATHER_ARMOUR...
  */
 monster_type monster_for_hide(armour_type arm)
@@ -1451,7 +1451,7 @@ int armour_acq_weight(const armour_type armour)
 equipment_type get_armour_slot(const item_def &item)
 {
     ASSERT(item.base_type == OBJ_ARMOUR || item.base_type == OBJ_STAVES);
-	
+
     if(item.base_type == OBJ_STAVES)
         return EQ_SHIELD;
 
@@ -1584,11 +1584,11 @@ int wand_charge_value(int type)
         return 4;
 
     default:
-        return 5; 
+        return 5;
 
     case WAND_FLAME:
     case WAND_CONFUSION:
-        return 6; 
+        return 6;
     }
 }
 
@@ -1918,7 +1918,7 @@ bool is_brandable_weapon(const item_def &wpn, bool allow_ranged, bool divine)
  *
  * @param item  The item under consideration.
  * @return      The skill used to attack with the given item; defaults to
- *              SK_FIGHTING if no melee or ranged skill applies.
+ *              SK_UNARMED_COMBAT if no melee or ranged skill applies.
  */
 skill_type item_attack_skill(const item_def &item)
 {
@@ -1930,7 +1930,7 @@ skill_type item_attack_skill(const item_def &item)
         return SK_THROWING;
 
     // This is used to mark that only fighting applies.
-    return SK_FIGHTING;
+    return SK_UNARMED_COMBAT;
 }
 
 /**
@@ -1939,7 +1939,7 @@ skill_type item_attack_skill(const item_def &item)
  * @param wclass  The item base type under consideration.
  * @param wtype   The item subtype under consideration.
  * @return      The skill used to attack with the given item type; defaults to
- *              SK_FIGHTING if no melee skill applies.
+ *              SK_UNARMED_COMBAT if no melee skill applies.
  */
 skill_type item_attack_skill(object_class_type wclass, int wtype)
 {
@@ -2018,7 +2018,7 @@ bool item_skills(const item_def &item, set<skill_type> &skills)
     }
 
     skill_type sk = item_attack_skill(item);
-    if (sk != SK_FIGHTING && sk != SK_THROWING)
+    if (sk != SK_THROWING)
         skills.insert(sk);
 
     return !skills.empty();
@@ -2832,7 +2832,7 @@ equipment_type get_item_slot(object_class_type type, int sub_type)
 
     case OBJ_ARMOUR:
         return get_armour_slot(static_cast<armour_type>(sub_type));
-		
+
     case OBJ_STAVES:
         return EQ_SHIELD;
 

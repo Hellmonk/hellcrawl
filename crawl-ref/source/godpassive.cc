@@ -1177,7 +1177,7 @@ monster* shadow_monster(bool equip)
                                   you.skill_rdiv(wpn_index != NON_ITEM
                                                  ? item_attack_skill(mitm[wpn_index])
                                                  : SK_UNARMED_COMBAT, 10, 20)
-                                  + you.skill_rdiv(SK_FIGHTING, 10, 20))));
+                                      + piety_rank())));
     mon->set_position(you.pos());
     mon->mid        = MID_PLAYER;
     mon->inv[MSLOT_WEAPON]  = wpn_index;

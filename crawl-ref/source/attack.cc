@@ -159,17 +159,11 @@ int attack::calc_to_hit(bool random)
     // player_to_hit methods.
     if (attacker->is_player())
     {
-        // fighting contribution
-        mhit += maybe_random_div(you.skill(SK_FIGHTING, 100), 100, random);
-
         // weapon skill contribution
         if (using_weapon())
         {
-            if (wpn_skill != SK_FIGHTING)
-            {
-                mhit += maybe_random_div(you.skill(wpn_skill, 100), 100,
-                                         random);
-            }
+            mhit += maybe_random_div(you.skill(wpn_skill, 100) * 2, 100,
+                                     random);
         }
         else if (you.form_uses_xl())
             mhit += maybe_random_div(you.experience_level * 100, 100, random);
@@ -351,8 +345,6 @@ void attack::init_attack(skill_type unarmed_skill, int attack_number)
     weapon          = attacker->weapon(attack_number);
 
     wpn_skill       = weapon ? item_attack_skill(*weapon) : unarmed_skill;
-    if (attacker->is_player() && you.form_uses_xl())
-        wpn_skill = SK_FIGHTING; // for stabbing, mostly
 
     attacker_armour_tohit_penalty =
         div_rand_round(attacker->armour_tohit_penalty(true, 20), 20);
@@ -1202,16 +1194,6 @@ int attack::player_apply_weapon_skill(int damage)
     return damage;
 }
 
-int attack::player_apply_fighting_skill(int damage, bool aux)
-{
-    const int base = aux? 40 : 30;
-
-    damage *= base * 100 + (random2(you.skill(SK_FIGHTING, 100) + 1));
-    damage /= base * 100;
-
-    return damage;
-}
-
 int attack::player_apply_misc_modifiers(int damage)
 {
     return damage;
@@ -1355,7 +1337,6 @@ int attack::calc_damage()
         damage = random2(potential_damage+1);
 
         damage = player_apply_weapon_skill(damage);
-        damage = player_apply_fighting_skill(damage, false);
         damage = player_apply_misc_modifiers(damage);
         damage = player_apply_slaying_bonuses(damage, false);
         damage = player_stab(damage);

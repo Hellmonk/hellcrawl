@@ -161,9 +161,6 @@ static void _practise_weapon_use(const item_def &weapon)
                                  mindelay_skill);
         exercise(weapon_skill, degree);
     }
-
-    if (coinflip())
-        exercise(SK_FIGHTING, 1);
 }
 
 /// Skill training when the player hits a monster in melee combat.
@@ -215,10 +212,7 @@ void practise_being_attacked()
 /// Skill training when a monster hits the player with a melee attack.
 void practise_being_hit()
 {
-    if (coinflip())
-        _check_train_armour(coinflip() ? 2 : 1);
-    else if (coinflip())
-        exercise(SK_FIGHTING, 1);
+    _check_train_armour(coinflip() ? 2 : 1);
 }
 
 /// Skill training when the player uses a special ability.

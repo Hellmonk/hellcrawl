@@ -481,7 +481,7 @@ IDEF(weap_skill)
         return 0;
 
     const skill_type skill = item_attack_skill(*item);
-    if (skill == SK_FIGHTING)
+    if (skill == SK_UNARMED_COMBAT)
         return 0;
 
     lua_pushstring(ls, skill_name(skill));

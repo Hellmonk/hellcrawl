@@ -4752,7 +4752,7 @@ spret_type qazlal_upheaval(coord_def target, bool quiet, bool fail)
                 if (grd(pos) == DNGN_FLOOR && !actor_at(pos) && coinflip())
                 {
                     temp_change_terrain(
-                        pos, DNGN_LAVA,
+                        pos, DNGN_LAVA, 10 *
                         random2(you.skill(SK_INVOCATIONS, BASELINE_DELAY)),
                         TERRAIN_CHANGE_FLOOD);
                 }

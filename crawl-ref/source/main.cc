@@ -3405,7 +3405,7 @@ static void _move_player(coord_def move)
 			
 			//You can't attack while in lava either
 			if (grd(you.pos()) == DNGN_LAVA
-                && !player_likes_lava() && !you.airborne())
+                && !player_likes_lava() && !you.airborne() && !you_worship(GOD_QAZLAL))
             {
                 mpr("You cannot attack while walking through lava!");
                 return;

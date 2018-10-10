@@ -550,4 +550,18 @@ FOUNTAIN(DNGN_DRY_FOUNTAIN_BLOOD, "dry fountain", "non-fountain_blood", LIGHTGRE
     FFT_NONE, MF_STAIR_BRANCH,
 },
 
+{
+    DNGN_ENCHANTED_ANVIL, "enchanted anvil", "anvil",
+    DCHAR_ARCH, DCHAR_ARCH,
+    COLOUR_AND_MAP(ETC_GOLD),
+    FFT_NOTABLE, MF_FEATURE,
+},
+
+{
+    DNGN_DESTROYED_ANVIL, "dormant anvil", "anvil",
+    DCHAR_ARCH, DCHAR_ARCH,
+    COLOUR_AND_MAP(LIGHTGREY),
+    FFT_NONE, MF_FEATURE,
+},
+
 };

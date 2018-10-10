@@ -43,6 +43,9 @@ enum object_selector
                                         // are included, to prevent information
                                         // leakage.
     OSEL_DIVINE_RECHARGE         = -21,
+    OSEL_ANVIL_ENCHANTABLE       = -22, // Any non-artefact weapon/armour. Only
+                                        // unworn items are eligible, but we
+                                        // list everything to not confuse players.
 };
 
 /// Behaviour flags for prompt_invent_item().

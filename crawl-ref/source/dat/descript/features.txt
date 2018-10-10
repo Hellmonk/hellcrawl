@@ -348,6 +348,18 @@ A broken pillar
 
 A ruined and crumbled stone pillar.
 %%%%
+An enchanted anvil
+
+A magical anvil, glowing softly. Placing a non-artefact weapon or armour on
+its face will call metalworking spirits to improve it for you. However,
+the more enchanted the item, the greater the risk of attracting malicious
+spirits.
+%%%%
+A dormant anvil
+
+An enchanted anvil that has been recently used. It will not be usable again
+any time soon.
+%%%%
 ########################################################################
 ### Branch entrances and exits
 ########################################################################

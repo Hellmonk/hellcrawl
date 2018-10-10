@@ -1,0 +1,10 @@
+# Place through most of the game up to Zot, except S branches
+default-depth: D, Orc, Vaults, Depths
+
+NAME:   anvil_simple
+TAGS:   chance_anvil allow_dup
+CHANCE: 30%
+KFEAT:  _ = anvil
+MAP
+_
+ENDMAP

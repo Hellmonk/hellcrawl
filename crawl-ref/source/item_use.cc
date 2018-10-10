@@ -2231,7 +2231,7 @@ static string _item_name(item_def &item) {
                                         : DESC_THE);
 }
 
-static void _brand_weapon(item_def &wpn)
+void brand_weapon(item_def &wpn)
 {
     you.wield_change = true;
 
@@ -2366,7 +2366,7 @@ static bool _handle_brand_weapon(bool alreadyknown, const string &pre_msg)
     if (!weapon)
         return !alreadyknown;
 
-    _brand_weapon(*weapon);
+    brand_weapon(*weapon);
     return true;
 }
 

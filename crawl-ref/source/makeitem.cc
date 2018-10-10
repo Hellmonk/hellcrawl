@@ -764,13 +764,10 @@ static bool _try_make_armour_artefact(item_def& item, int force_type,
  * Generate an appropriate ego for a type of armour.
  *
  * @param item          The type of armour in question.
- * @param item_level    A 'level' of item to generate.
- *                      Only currently used for robes.
  * @return              An ego appropriate to the item type.
  *                      May be SPARM_NORMAL.
  */
-static special_armour_type _generate_armour_type_ego(armour_type type,
-                                                     int item_level)
+special_armour_type generate_armour_type_ego(armour_type type)
 {
     // TODO: move this into data
     switch (type)
@@ -867,8 +864,7 @@ static special_armour_type _generate_armour_ego(const item_def& item,
         return static_cast<special_armour_type>(item.brand);
 
     const special_armour_type ego
-        = _generate_armour_type_ego(static_cast<armour_type>(item.sub_type),
-                                    item_level);
+        = generate_armour_type_ego(static_cast<armour_type>(item.sub_type));
 
     ASSERT(is_armour_brand_ok(item.sub_type, ego, true));
     return ego;
@@ -1336,8 +1332,6 @@ static void _generate_scroll_item(item_def& item, int force_type,
                  80, (crawl_state.game_is_sprint() ? NUM_SCROLLS : SCR_TELEPORTATION),
 
                  50, SCR_AMNESIA,
-                 45, SCR_ENCHANT_ARMOUR,
-                 45, SCR_ENCHANT_WEAPON,
                  45, SCR_MAGIC_MAPPING,
                  32, SCR_FEAR,
                  32, SCR_FOG,
@@ -1350,7 +1344,6 @@ static void _generate_scroll_item(item_def& item, int force_type,
                  17, (depth_mod < 4 ? NUM_SCROLLS : SCR_SUMMONING),
                  15, (depth_mod < 4 ? NUM_SCROLLS : SCR_ACQUIREMENT),
                  15, (depth_mod < 4 ? NUM_SCROLLS : SCR_SILENCE),
-                 15, (depth_mod < 4 ? NUM_SCROLLS : SCR_BRAND_WEAPON),
                  15, (depth_mod < 4 ? NUM_SCROLLS : SCR_TORMENT),
                  15, (depth_mod < 4 ? NUM_SCROLLS : SCR_HOLY_WORD));
         }

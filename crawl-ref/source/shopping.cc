@@ -1372,6 +1372,118 @@ bool ShopMenu::process_key(int keyin)
     return ret;
 }
 
+#include "terrain.h"
+#include "view.h"
+#include "makeitem.h"
+#include "item_use.h"
+#include "player-equip.h"
+/// XXX somehow armour is being duplicated
+void use_anvil()
+{
+    int item_slot;
+    item_def itemp;
+    bool has_ego;
+    int failure_chance;
+    int success_chance;
+    while (true)
+    {
+        // If this is changed to allow more than weapon/armour, a lot of the
+        // below code will need to be updated.
+        item_slot = prompt_invent_item("Enchant what?", MT_INVLIST,
+                                        OSEL_ANVIL_ENCHANTABLE, OPER_ANY,
+                                        invprompt_flag::escape_only);
+        if (prompt_failed(item_slot))
+        {
+            canned_msg(MSG_OK);
+            return;
+        }
+
+        itemp = you.inv[item_slot];
+        const bool armour = itemp.base_type == OBJ_ARMOUR;
+        const bool weapon = itemp.base_type == OBJ_WEAPONS;
+
+        if (!armour && !weapon) {
+          canned_msg(MSG_UNTHINKING_ACT);
+          return;
+        }
+
+        // If the item is equipped, tell the player to unequip it
+        // TODO: support automatically unwielding this stuff
+        if (armour && item_is_worn(item_slot))
+        {
+            mpr("You need to take that off first!");
+            return;
+        }
+        else if (weapon && you.equip[EQ_WEAPON] == item_slot)
+        {
+          mpr("You need to unwield that first!");
+          return;
+        }
+
+        has_ego = armour ? get_armour_ego_type(itemp) != SPARM_NORMAL : get_weapon_brand(itemp) != SPWPN_NORMAL;
+        failure_chance = min(90, itemp.plus * 10 + has_ego * 10);
+        success_chance = 100 - failure_chance;
+
+        if (!yesno(make_stringf("Enchant your %s? (success chance: %d%%)", itemp.name(DESC_YOUR).c_str(), success_chance).c_str(), true, 'n'))
+            continue;
+        else
+            break;
+    }
+
+    item_def &item = itemp;
+
+    mprf("You place your %s on the anvil...", item.name(DESC_YOUR).c_str());
+    if (x_chance_in_y(success_chance, 100))
+    {
+        mpr("You sense a helpful spirit.");
+        if (!one_chance_in(5) || has_ego)
+        {
+            flash_view_delay(UA_PLAYER, YELLOW, 300);
+            const int plus = random_range(1,4);
+            item.plus += plus;
+            mprf("Your %s has gained enchantment!", item.name(DESC_YOUR).c_str());
+        }
+        else
+        {
+            flash_view_delay(UA_PLAYER, WHITE, 300);
+            if (item.base_type == OBJ_WEAPONS)
+                brand_weapon(item); // XXX: prints the item
+            else if (item.base_type == OBJ_ARMOUR)
+                item.brand = generate_armour_type_ego(static_cast<armour_type>(item.sub_type));
+            mprf("Your %s has been branded!", item.name(DESC_YOUR).c_str());
+        }
+    }
+    else
+    {
+        mpr("You sense the presence of an evil spirit!");
+        if (!one_chance_in(5) || !has_ego)
+        {
+            flash_view_delay(UA_PLAYER, GREEN, 300);
+            item.plus -= (1 + biased_random2(3, 2));
+            mprf("Your %s has lost enchantment!", item.name(DESC_YOUR).c_str());
+        }
+        else
+        {
+            flash_view_delay(UA_PLAYER, MAGENTA, 300);
+            if (item.base_type == OBJ_WEAPONS)
+                item.brand = SPWPN_NORMAL;
+            else if (item.base_type == OBJ_ARMOUR)
+                item.brand = SPARM_NORMAL;
+            mprf("Your %s has lost its brand!", item.name(DESC_YOUR).c_str());
+        }
+    }
+
+    you.inv[item_slot] = item;
+
+    // Destroy the anvil
+    mpr("The anvil dulls and falls dormant.");
+    auto const pos = you.pos();
+    dungeon_terrain_changed(pos, DNGN_DESTROYED_ANVIL, false, false, false, true);
+    view_update_at(pos);
+
+    redraw_screen();
+}
+
 void shop()
 {
     if (!shop_at(you.pos()))

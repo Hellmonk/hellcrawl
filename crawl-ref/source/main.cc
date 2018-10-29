@@ -1595,6 +1595,12 @@ static bool _can_take_stairs(dungeon_feature_type ftype, bool down,
         return false;
     }
 
+    if (ftype == DNGN_ENCHANTED_ANVIL)
+    {
+        use_anvil();
+        return false;
+    }
+
     // bidirectional, but not actually a portal
     if (ftype == DNGN_PASSAGE_OF_GOLUBRIA)
         return true;

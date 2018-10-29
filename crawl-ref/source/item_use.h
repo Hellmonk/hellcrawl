@@ -73,4 +73,6 @@ void tile_item_use(int idx);
 void tile_item_use_secondary(int idx);
 #endif
 
+void brand_weapon(item_def &wpn);
+
 #endif

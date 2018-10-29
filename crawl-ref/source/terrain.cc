@@ -1869,6 +1869,8 @@ const char* feat_type_name(dungeon_feature_type feat)
         return "shop";
     if (feat_is_fountain(feat))
         return "fountain";
+    if (feat == DNGN_ENCHANTED_ANVIL)
+        return "enchanted anvil";
     if (feat == DNGN_UNSEEN)
         return "unknown terrain";
     return "floor";

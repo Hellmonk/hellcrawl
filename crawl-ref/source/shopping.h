@@ -119,6 +119,8 @@ private:
 
 extern ShoppingList shopping_list;
 
+void use_anvil();
+
 #if TAG_MAJOR_VERSION == 34
 #define REMOVED_DEAD_SHOPS_KEY "removed_dead_shops"
 #endif
